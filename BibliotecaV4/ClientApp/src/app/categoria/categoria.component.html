@@ -1,0 +1,32 @@
+<h1>Categorias</h1>
+
+<!--<button [routerLink]='["/personas-agregar"]' class="btn btn-primary">Agregar Persona</button>-->
+
+<button [routerLink]='["/categorias-agregar"]' class="btn btn-primary">Agregar CATEGORIAS</button>
+
+<p *ngIf="!(categorias && categorias.length)">
+  No existen registros para mostrar
+</p>
+
+<table class="table" *ngIf="categorias && categorias.length">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Autor</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let categoria of categorias">
+      <td>{{categoria.nombre}}</td>
+      <td>{{categoria.descripcion}}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]='["/categorias-editar/" + categoria.id]'>Editar</button>
+        <button class="btn btn-danger" (click)="delete(categoria)">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
